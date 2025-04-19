@@ -84,7 +84,10 @@ const loadRoutes = async (dir = "") => {
         return;
     }
     const routeFiles = fs.readdirSync(routesDir).filter((file) => {
-        return file.endsWith(".ts") && !file.endsWith(".d.ts");
+        return (
+            (file.endsWith(".ts") && !file.endsWith(".d.ts")) ||
+            file.endsWith(".js")
+        );
     });
 
     for (const file of routeFiles) {
